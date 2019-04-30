@@ -1,0 +1,16 @@
+@import "./variables.scss";
+@import "../components/Card/card";
+@import "../components//Cards/cards";
+@import "../components/Main/main";
+@import "../components/Nav/nav";
+@import "../app";
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: 1px solid red;
+}
+html, body, #app, #app>div, #root, .App {
+    height: 100%;
+    overflow: hidden;
+  }
