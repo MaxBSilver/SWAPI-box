@@ -9,7 +9,6 @@ const fetchAny = async (category, page) => {
   return result;
 };
 
-
 // * Fetch people chain fetchAny => fetchPlanetInPeople => fetchSpeciesInPeople *\\
 
 const fetchPlanetInPeople = peopleData => {
@@ -22,15 +21,39 @@ const fetchPlanetInPeople = peopleData => {
   return Promise.all(people);
 };
 
-const fetchSpeciesInPeople = (peopleData) => {
-  const people = peopleData.map( async person => {
+const fetchSpeciesInPeople = peopleData => {
+  const people = peopleData.map(async person => {
     const response = await fetch(person.species[0]);
     const species = await response.json();
     const personData = { ...person, species };
     return personData;
-  })
+  });
   return Promise.all(people);
-}
+};
+
+// * Fetch planets chain fetchAny => fetchPlanetResidents *\\
+
+const fetchPlanetResidents = planetsData => {
+  const planets = planetsData.results.map(planet => {
+    return mapResidents(planet).then(data => ({ ...planet, residents: data }));
+  });
+  return Promise.all(planets);
+};
+
+const mapResidents = planet => {
+  const residents = planet.residents.map(resident => {
+    const residentInfo = fetchResident(resident);
+    return residentInfo;
+  });
+  return Promise.all(residents);
+};
+
+const fetchResident = resident => {
+  let response = fetch(resident).then(residentInfo => residentInfo.json());
+  return response;
+};
+
+// * fetchMovie
 
 const fetchRandomMovie = async () => {
   const randomFilmNumber = randomNumber();
@@ -39,14 +62,10 @@ const fetchRandomMovie = async () => {
   return cleanFilmFetch(result);
 };
 
-
-
-// * Fetch planets chain fetchAny => fetchPlanetResidents *\\
-
-const fetchPlanetResidents = (planetsData) => {
-  const planets = planetsData.results.map(planet => {
-    console.log(planet.residents)
-  })
-}
-
-export { fetchRandomMovie, fetchAny, fetchPlanetInPeople, fetchSpeciesInPeople, fetchPlanetResidents };
+export {
+  fetchRandomMovie,
+  fetchAny,
+  fetchPlanetInPeople,
+  fetchSpeciesInPeople,
+  fetchPlanetResidents
+};
