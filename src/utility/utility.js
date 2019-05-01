@@ -7,17 +7,50 @@ const randomNumber = () => {
   return Math.floor(Math.random() * 7) + 1;
 };
 
-const cleanPeople = uncleanPeople => {
-  let cleanedPeople=  uncleanPeople.map(person => {
+const cleanPeopleData = uncleanPeopleData => {
+  let cleanedPeople = uncleanPeopleData.map(person => {
     let cleanPerson = {
       name: person.name,
       homeworld: person.homeworld.name,
       population: person.homeworld.population,
       species: person.species.name
     };
-    return cleanPerson
+    return cleanPerson;
   });
   return cleanedPeople;
 };
 
-export { cleanFilmFetch, randomNumber, cleanPeople };
+const cleanPlanetData = uncleanPlanetData => {
+  let cleanedPlanets = uncleanPlanetData.map(planet => {
+    let cleanPlanet = {
+      name: planet.name,
+      terrain: planet.terrain,
+      population: planet.population,
+      climate: planet.climate,
+      residents: planet.residents.map(resident => resident.name).join(", ")
+    };
+    return cleanPlanet;
+  });
+  return cleanedPlanets;
+};
+const cleanVehicleData = uncleanVehicleData => {
+  let uncleanVehicles = uncleanVehicleData.results;
+  const cleanVehicles = uncleanVehicles.map(vehicle => {
+    return {
+      name: vehicle.name,
+      model: vehicle.model,
+      class: vehicle.vehicle_class,
+      passengers: vehicle.passengers
+    };
+  });
+
+  return cleanVehicles;
+};
+
+export {
+  cleanFilmFetch,
+  randomNumber,
+  cleanPeopleData,
+  cleanVehicleData,
+  cleanPlanetData
+};
