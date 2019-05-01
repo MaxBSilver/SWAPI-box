@@ -1,12 +1,7 @@
 import React from "react";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faJedi } from "@fortawesome/free-solid-svg-icons";
 import Main from "./components/Main/Main";
-import { cleanFilmFetch } from "./utility";
+import { fetchRandomMovie } from "./utility/fetch";
 
-// map over an array of urls to fetch calls then use promise.all to determine if they are all loaded. If they are all loaded then begin the app, else run a loading screen
-library.add(faJedi);
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,15 +11,7 @@ class App extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.fetchRandomMovie();
-  };
-
-  fetchRandomMovie = async () => {
-    let randomFilmNumber = Math.floor(Math.random() * 7) + 1;
-    await fetch(`https://swapi.co/api/films/${randomFilmNumber}/`)
-      .then(response => response.json())
-      .then(film => this.setState({ randomFilm: cleanFilmFetch(film) }))
-      .catch(error => console.log(error));
+    fetchRandomMovie().then(randomFilm => this.setState({ randomFilm }));
   };
 
   render() {
