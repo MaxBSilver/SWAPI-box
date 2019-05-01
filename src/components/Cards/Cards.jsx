@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from "react";
+import Card from "../Card/Card";
 
-export class Cards extends Component {
-  render() {
-    return (
-      <section className="cards">
-        
-      </section>
-    )
-  }
+export default function Cards(props) {
+  console.log(props)
+  return (
+    <section className="cards">
+      {props.display.map(item => {
+        return <Card {...item} key={item.name} />;
+      })}
+    </section>
+  );
 }
-
-export default Cards

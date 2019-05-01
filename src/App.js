@@ -1,6 +1,6 @@
 import React from "react";
 import Main from "./components/Main/Main";
-import { fetchRandomMovie } from "./utility/fetch";
+import { fetchRandomMovie } from "./fetch";
 
 class App extends React.Component {
   constructor(props) {

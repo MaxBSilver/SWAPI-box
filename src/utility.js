@@ -13,7 +13,8 @@ const cleanPeopleData = uncleanPeopleData => {
       name: person.name,
       homeworld: person.homeworld.name,
       population: person.homeworld.population,
-      species: person.species.name
+      species: person.species.name,
+      favorited: false
     };
     return cleanPerson;
   });
@@ -27,7 +28,8 @@ const cleanPlanetData = uncleanPlanetData => {
       terrain: planet.terrain,
       population: planet.population,
       climate: planet.climate,
-      residents: planet.residents.map(resident => resident.name).join(", ")
+      residents: planet.residents.map(resident => resident.name).join(", "),
+      favorited: false
     };
     return cleanPlanet;
   });
@@ -40,7 +42,8 @@ const cleanVehicleData = uncleanVehicleData => {
       name: vehicle.name,
       model: vehicle.model,
       class: vehicle.vehicle_class,
-      passengers: vehicle.passengers
+      passengers: vehicle.passengers,
+      favorited: false
     };
   });
 
