@@ -5,7 +5,11 @@ import {
   fetchSpeciesInPeople,
   fetchPlanetResidents
 } from "../../utility/fetch";
-import { cleanPeopleData, cleanVehicleData, cleanPlanetData } from "../../utility/utility";
+import {
+  cleanPeopleData,
+  cleanVehicleData,
+  cleanPlanetData
+} from "../../utility/utility";
 
 import Nav from "../Nav/Nav";
 import Cards from "../Cards/Cards";
@@ -19,7 +23,8 @@ class Main extends Component {
       page: 1,
       people: [],
       vehicles: [],
-      planets: []
+      planets: [],
+      display: ""
     };
   }
 
@@ -61,11 +66,14 @@ class Main extends Component {
       .then(vehicles => this.setState({ vehicles }));
   };
 
+ 
+
   render() {
+    const {category} = this.state;
     return (
       <main>
         <Nav updateCategory={this.updateCategory} />
-        <Cards />
+        <Cards display={this.state[category]}/>
       </main>
     );
   }

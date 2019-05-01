@@ -1,6 +1,5 @@
 import { cleanFilmFetch, randomNumber } from "./utility";
 
-
 const url = "https://swapi.co/api/";
 
 const fetchAny = async (category, page) => {
@@ -34,31 +33,22 @@ const fetchSpeciesInPeople = peopleData => {
 
 // * Fetch planets chain fetchAny => fetchPlanetResidents *\\
 
-const fetchPlanetResidents =  planetsData => {
-  const planets = planetsData.results.map( planet => {
-    return mapResidents(planet).then(data=> ({...planet, residents: data}))
-    // console.log('resolved?: ', residents);
-      // const planetWithResidents = { ...planet, residents: residents };
-      // return planetWithResidents
-
-    // promises are unresolved here and then get set to state from this return
+const fetchPlanetResidents = planetsData => {
+  const planets = planetsData.results.map(planet => {
+    return mapResidents(planet).then(data => ({ ...planet, residents: data }));
   });
   return Promise.all(planets);
 };
 
-const mapResidents =  planet => {
-  const residents = planet.residents.map( resident => {
+const mapResidents = planet => {
+  const residents = planet.residents.map(resident => {
     const residentInfo = fetchResident(resident);
     return residentInfo;
   });
-  console.log('unresolved: ', residents);
-  // ! promise.all should resolve these promises? but it returns the unresolved promises
-  // here i am trying to resolve the promises before returning them
   return Promise.all(residents);
 };
 
 const fetchResident = resident => {
-  // each individual promise for a resident fetch
   let response = fetch(resident).then(residentInfo => residentInfo.json());
   return response;
 };
