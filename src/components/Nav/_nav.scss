@@ -1,33 +1,61 @@
-
 nav {
-    display: flex;
-    align-items: center;
-    background-color: rgb(34, 34, 34);
+  display: flex;
+  align-items: center;
+  background-color: rgb(34, 34, 34);
 }
 
 .nav-btn-container {
-    width: 40%;
-    display: flex;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 nav button {
-    padding: 1.8em;
-    background-color: rgb(42, 42, 42);
-    border: 0.1em black solid;
-    font-size: 1em;
-    color : rgb(173, 180, 144);
-    transition: background-color;
+  padding: 1em;
+  background-color: rgb(42, 42, 42);
+  border: 0.1em black solid;
+  font-size: 1em;
+  width: 20em;
+  color: rgb(173, 180, 144);
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 nav button:focus {
-    outline: none;
+  outline: none;
 }
-nav button:hover {
-    background-color:  rgb(49, 49, 49);
+nav button:hover,
+nav button:focus{
+  background-color: rgb(49, 49, 49);
 }
-.nav-planets-btn:hover {
-    color: rgb(41, 126, 41);
+.nav-planets-btn:hover,
+.nav-planets-btn:focus,
+.nav-planets-btn .nav-btn-icon {
+  color: rgb(41, 126, 41);
 }
 
-.nav-vehicles-btn:hover {
-    color: rgb(180, 117, 0)
+.nav-vehicles-btn:hover,
+.nav-vehicles-btn:focus,
+.nav-vehicles-btn .nav-btn-icon {
+  color: rgb(180, 117, 0);
+}
+
+.nav-people-btn:hover,
+.nav-people-btn:focus,
+.nav-people-btn .nav-btn-icon {
+  color: rgb(81, 171, 255);
+}
+
+.nav-favorites-btn:hover,
+.nav-favorites-btn:focus,
+.nav-favorites-btn .nav-btn-icon {
+  color: rgb(177, 87, 102);
+}
+
+.nav-btn-icon {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+  pointer-events: none;
+
 }

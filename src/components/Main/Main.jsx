@@ -139,6 +139,7 @@ class Main extends Component {
         {this.state.display && (
           <Cards
             display={this.state[category]}
+            category = {category}
             updateFavorites={this.updateFavorites}
           />
         )}

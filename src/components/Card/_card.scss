@@ -6,4 +6,25 @@
     grid-auto-columns: 1fr;
     height: 14em;
     width: 12em;
+    background-color: rgb(42, 42, 44);
+    border-radius: 0.4em;
+}
+
+.card-favorite-icon {
+    color: #B15766;
+    font-size: 3em;
+    pointer-events: none;
+ 
+    
+}
+
+.card button {
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 3;
+    width: 3em;
+}
+.card-favorite-button {
+    background-color: transparent;
 }
