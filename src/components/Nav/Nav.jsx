@@ -45,7 +45,7 @@ export default function Nav(props) {
           name="favorites"
         >
           <FontAwesomeIcon  className="nav-btn-icon"  icon={faHeart} />
-          FAVORITES
+          FAVORITES ({props.favorites})
         </button>
       </div>
     </nav>

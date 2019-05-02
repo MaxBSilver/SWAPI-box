@@ -19,8 +19,9 @@ main h1 {
 }
 
 h1.category-text div {
-    background-color: rgb(34, 34, 34);
-    padding: 0.5em
+  background-color: rgb(34, 34, 34);
+  padding: 0.5em;
+  border-bottom: 0.1em solid black;
 }
 
 @media only screen and (max-width: 1180px) {

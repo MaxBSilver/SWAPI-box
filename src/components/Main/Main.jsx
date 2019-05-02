@@ -129,7 +129,7 @@ class Main extends Component {
     const { title, crawl, date } = this.props;
     return (
       <main>
-        <Nav updateCategory={this.updateCategory} />
+        <Nav updateCategory={this.updateCategory} favorites={this.state.favorites.length}/>
         {!this.state.loading && !this.state.display && (
           <Movie title={title} crawl={crawl} date={date} />
         )}
@@ -139,7 +139,7 @@ class Main extends Component {
         {this.state.display && (
           <Cards
             display={this.state[category]}
-            category = {category}
+            category={category}
             updateFavorites={this.updateFavorites}
           />
         )}

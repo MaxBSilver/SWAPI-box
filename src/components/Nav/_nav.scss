@@ -9,7 +9,6 @@ nav {
   display: flex;
   justify-content: center;
   border: 0.1em black solid;
-
 }
 
 nav button {
@@ -28,7 +27,7 @@ nav button:focus {
   outline: none;
 }
 nav button:hover,
-nav button:focus{
+nav button:focus {
   background-color: rgb(49, 49, 49);
 }
 .nav-planets-btn:hover,
@@ -59,5 +58,4 @@ nav button:focus{
   font-size: 1.5em;
   margin-bottom: 0.2em;
   pointer-events: none;
-
 }
