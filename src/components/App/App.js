@@ -22,14 +22,16 @@ class App extends React.Component {
   };
 
   render() {
-    const { loading } = this.state;
+    const { loading, randomFilm } = this.state;
     return (
       <div className="App">
         <header>
-          <h1><img src="https://i.imgur.com/67trXj2.png"/></h1>
+          <h1>
+            <img alt="swapi-box logo" src="https://i.imgur.com/67trXj2.png" />
+          </h1>
         </header>
         {loading && <Loading />}
-        {!loading && <Main {...this.state.randomFilm} />}
+        {!loading && <Main {...randomFilm} />}
       </div>
     );
   }

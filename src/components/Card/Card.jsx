@@ -1,7 +1,7 @@
 import React from "react";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default function Card(props) {
+const Card = (props) => {
   const handleFavorite = e => {
     const { id } = e.target;
     props.updateFavorites(id);
@@ -31,3 +31,4 @@ export default function Card(props) {
     </article>
   );
 }
+export default Card

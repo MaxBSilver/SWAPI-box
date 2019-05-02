@@ -20,7 +20,7 @@ export default function Nav(props) {
           onClick={handleClickCategory}
           name="people"
         >
-          <FontAwesomeIcon  className="nav-btn-icon" icon={faUsers} />
+          <FontAwesomeIcon className="nav-btn-icon" icon={faUsers} />
           PEOPLE
         </button>
         <button
@@ -28,7 +28,7 @@ export default function Nav(props) {
           onClick={handleClickCategory}
           name="planets"
         >
-          <FontAwesomeIcon className="nav-btn-icon"  icon={faGlobe} />
+          <FontAwesomeIcon className="nav-btn-icon" icon={faGlobe} />
           PLANETS
         </button>
         <button
@@ -36,7 +36,7 @@ export default function Nav(props) {
           onClick={handleClickCategory}
           name="vehicles"
         >
-          <FontAwesomeIcon className="nav-btn-icon"  icon={faSpaceShuttle} />
+          <FontAwesomeIcon className="nav-btn-icon" icon={faSpaceShuttle} />
           VEHICLES
         </button>
         <button
@@ -44,7 +44,7 @@ export default function Nav(props) {
           onClick={handleClickCategory}
           name="favorites"
         >
-          <FontAwesomeIcon  className="nav-btn-icon"  icon={faHeart} />
+          <FontAwesomeIcon className="nav-btn-icon" icon={faHeart} />
           FAVORITES ({props.favorites})
         </button>
       </div>
