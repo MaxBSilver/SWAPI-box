@@ -14,7 +14,7 @@ export default function Cards(props) {
         return (
           <Card
             {...item}
-            key={item.name}
+            key={item.Name}
             updateFavorites={props.updateFavorites}
           />
         );

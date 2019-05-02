@@ -4,12 +4,12 @@ import {
   fetchPlanetInPeople,
   fetchSpeciesInPeople,
   fetchPlanetResidents
-} from "../../fetch";
+} from "../../utility/fetch";
 import {
   cleanPeopleData,
   cleanVehicleData,
   cleanPlanetData
-} from "../../utility";
+} from "../../utility/utility";
 
 import Nav from "../Nav/Nav";
 import Cards from "../Cards/Cards";
@@ -30,6 +30,8 @@ class Main extends Component {
       planets: [],
       favorites: []
     };
+
+    // save to local storage by storing an array of arrays
   }
 
   updateCategory = updatedCategory => {
@@ -94,7 +96,7 @@ class Main extends Component {
     const { category } = this.state;
     let displayedArray = this.state[category];
     let updatedArray = displayedArray.map(item => {
-      if (item.name === favoritedCard) {
+      if (item.Name === favoritedCard) {
         let favoritedItem = { ...item, favorited: !item.favorited };
         return favoritedItem;
       } else {

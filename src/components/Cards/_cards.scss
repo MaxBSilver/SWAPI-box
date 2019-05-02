@@ -16,12 +16,13 @@ main h1 {
     3px 3px 0 #000;
   font-size: 2.5em;
   letter-spacing: 0.15em;
+
 }
 
 h1.category-text div {
-  background-color: rgb(34, 34, 34);
   padding: 0.5em;
-  border-bottom: 0.1em solid black;
+  border-bottom: 0.05em solid black;
+  background-color: rgb(15, 15, 15);
 }
 
 @media only screen and (max-width: 1180px) {
