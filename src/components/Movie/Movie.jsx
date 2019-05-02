@@ -4,8 +4,8 @@ export default function Movie(props) {
   return (
     <article className="movie">
       <h1>{props.title}</h1>
-      <p>{props.crawl}</p>
-      <span>{props.date}</span>
+      <p className="movie-crawl">{props.crawl}</p>
+      <span className="movie-date">{props.date}</span>
     </article>
   );
 }

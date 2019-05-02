@@ -4,14 +4,22 @@
 @import "../components/Main/main";
 @import "../components/Nav/nav";
 @import "../components/Loading/loading";
+@import "../components/Movie//movie";
+@import url("https://fonts.googleapis.com/css?family=Carrois+Gothic");
 @import "../app";
 
 * {
   padding: 0;
   margin: 0;
+  font-family: "Carrois Gothic", sans-serif;
   // outline: 1px solid red;
 }
-html, body, #app, #app>div, #root, .App {
-    height: 100%;
-    overflow: scroll;
-  }
+html,
+body,
+#app,
+#app > div,
+#root,
+.App {
+  height: 100%;
+  overflow: scroll;
+}

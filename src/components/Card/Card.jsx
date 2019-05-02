@@ -9,16 +9,7 @@ export default function Card(props) {
   const values = Object.entries(props);
   return (
     <article className="card">
-      <h1>{values[0][1]}</h1>
-      {values.map(value => {
-        return (
-          value[0] !== "favorited" &&
-          value[0] !== "updateFavorites" && (
-            <span key={value}>{value.join(" : ")}</span>
-          )
-        );
-      })}
-      <button
+      <h1>{values[0][1]}  <button
         className="card-favorite-button"
         id={values[0][1]}
         onClick={handleFavorite}
@@ -28,7 +19,16 @@ export default function Card(props) {
           icon={faHeart}
           style={{ color: props.favorited ? "#B15766" : "grey" }}
         />
-      </button>
+      </button></h1>
+      {values.map(value => {
+        return (
+          value[0] !== "favorited" &&
+          value[0] !== "updateFavorites" && (
+            <span key={value}>{value.join(" : ")}</span>
+          )
+        );
+      })}
+     
     </article>
   );
 }
