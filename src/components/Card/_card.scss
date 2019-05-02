@@ -1,0 +1,9 @@
+.card {
+    display:flex;
+    flex-direction: column;
+    border: black solid 0.1em;
+    align-content: center;
+    grid-auto-columns: 1fr;
+    height: 14em;
+    width: 12em;
+}
