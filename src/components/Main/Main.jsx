@@ -15,19 +15,21 @@ import Nav from "../Nav/Nav";
 import Cards from "../Cards/Cards";
 import Movie from "../Movie/Movie";
 import Loading from "../Loading/Loading";
+import { all } from "q";
 
 class Main extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      category: "",
       loading: false,
+      category: "",
+      display: "",
       page: 1,
       people: [],
       vehicles: [],
       planets: [],
-      display: ""
+      favorites: []
     };
   }
 
@@ -94,13 +96,25 @@ class Main extends Component {
     let displayedArray = this.state[category];
     let updatedArray = displayedArray.map(item => {
       if (item.name === favoritedCard) {
-        return { ...item, favorited: !item.favorited };
+        let favoritedItem = { ...item, favorited: !item.favorited };
+        return favoritedItem
       } else {
         return item;
       }
     });
-    this.setState({ [category]: updatedArray });
+    
+    this.setState({ [category]: updatedArray }, () => {
+      this.updateFavoritesArray();
+    });
   };
+
+  updateFavoritesArray = ()=> {
+    const { people, planets, vehicles} = this.state;
+    let allData = [];
+    allData = allData.concat(people, planets, vehicles)
+    let favorites = allData.filter(item => item.favorited)
+    this.setState({ favorites })
+  }
 
   render() {
     const { category } = this.state;

@@ -6,7 +6,6 @@ export default function Card(props) {
     props.updateFavorites(id);
   };
   const values = Object.entries(props);
-  console.log(values);
   return (
     <article className="card">
       <h1>{values[0][1]}</h1>
@@ -19,8 +18,7 @@ export default function Card(props) {
         );
       })}
       <button id={values[0][1]} onClick={handleFavorite}>
-        {" "}
-        favorite{" "}
+        favorite
       </button>
     </article>
   );
