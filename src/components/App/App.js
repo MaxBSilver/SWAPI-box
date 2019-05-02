@@ -1,7 +1,7 @@
 import React from "react";
-import Main from "./components/Main/Main";
-import { fetchRandomMovie } from "./fetch";
-import Loading from "./components/Loading/Loading";
+import Main from "../Main/Main";
+import { fetchRandomMovie } from "../../utility/fetch";
+import Loading from "../Loading/Loading";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,14 +22,16 @@ class App extends React.Component {
   };
 
   render() {
-    const { loading } = this.state;
+    const { loading, randomFilm } = this.state;
     return (
       <div className="App">
         <header>
-          <h1><img src="https://i.imgur.com/67trXj2.png"/></h1>
+          <h1>
+            <img alt="swapi-box logo" src="https://i.imgur.com/67trXj2.png" />
+          </h1>
         </header>
         {loading && <Loading />}
-        {!loading && <Main {...this.state.randomFilm} />}
+        {!loading && <Main {...randomFilm} />}
       </div>
     );
   }

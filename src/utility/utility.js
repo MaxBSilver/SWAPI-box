@@ -10,10 +10,10 @@ const randomNumber = () => {
 const cleanPeopleData = uncleanPeopleData => {
   let cleanedPeople = uncleanPeopleData.map(person => {
     let cleanPerson = {
-      name: person.name,
-      homeworld: person.homeworld.name,
-      population: person.homeworld.population,
-      species: person.species.name,
+      Name: person.name,
+      Homeworld: person.homeworld.name,
+      Population: person.homeworld.population,
+      Species: person.species.name,
       favorited: false
     };
     return cleanPerson;
@@ -24,11 +24,11 @@ const cleanPeopleData = uncleanPeopleData => {
 const cleanPlanetData = uncleanPlanetData => {
   let cleanedPlanets = uncleanPlanetData.map(planet => {
     let cleanPlanet = {
-      name: planet.name,
-      terrain: planet.terrain,
-      population: planet.population,
-      climate: planet.climate,
-      residents: planet.residents.map(resident => resident.name).join(", "),
+      Name: planet.name,
+      Terrain: planet.terrain,
+      Population: planet.population,
+      Climate: planet.climate,
+      Residents: planet.residents.map(resident => resident.name).join(", "),
       favorited: false
     };
     return cleanPlanet;
@@ -39,10 +39,10 @@ const cleanVehicleData = uncleanVehicleData => {
   let uncleanVehicles = uncleanVehicleData.results;
   const cleanVehicles = uncleanVehicles.map(vehicle => {
     return {
-      name: vehicle.name,
-      model: vehicle.model,
-      class: vehicle.vehicle_class,
-      passengers: vehicle.passengers,
+      Name: vehicle.name,
+      Model: vehicle.model,
+      Class: vehicle.vehicle_class,
+      Passengers: vehicle.passengers,
       favorited: false
     };
   });

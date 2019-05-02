@@ -4,12 +4,12 @@ import {
   fetchPlanetInPeople,
   fetchSpeciesInPeople,
   fetchPlanetResidents
-} from "../../fetch";
+} from "../../utility/fetch";
 import {
   cleanPeopleData,
   cleanVehicleData,
   cleanPlanetData
-} from "../../utility";
+} from "../../utility/utility";
 
 import Nav from "../Nav/Nav";
 import Cards from "../Cards/Cards";
@@ -30,26 +30,19 @@ class Main extends Component {
       planets: [],
       favorites: []
     };
+    // save to local storage by storing an array of arrays
   }
 
   updateCategory = updatedCategory => {
     this.setState({ category: updatedCategory }, () => {
-      if (
-        this.state.category === "people" &&
-        this.state[this.state.category].length === 0
-      ) {
+      const { category } = this.state;
+      if (category === "people" && this.state[category].length === 0) {
         this.getPeople();
       }
-      if (
-        this.state.category === "vehicles" &&
-        this.state[this.state.category].length === 0
-      ) {
+      if (category === "vehicles" && this.state[category].length === 0) {
         this.getVehicles();
       }
-      if (
-        this.state.category === "planets" &&
-        this.state[this.state.category].length === 0
-      ) {
+      if (category === "planets" && this.state[category].length === 0) {
         this.getPlanets();
       }
     });
@@ -58,7 +51,6 @@ class Main extends Component {
   getPeople = () => {
     const { category, page } = this.state;
     this.setState({ loading: true });
-
     fetchAny(category, page)
       .then(peoplePlanet => fetchPlanetInPeople(peoplePlanet))
       .then(peopleSpecies => fetchSpeciesInPeople(peopleSpecies))
@@ -82,7 +74,6 @@ class Main extends Component {
   getVehicles = () => {
     const { category, page } = this.state;
     this.setState({ loading: true });
-
     fetchAny(category, page)
       .then(vehicleData => cleanVehicleData(vehicleData))
       .then(vehicles =>
@@ -93,43 +84,36 @@ class Main extends Component {
   updateFavorites = favoritedCard => {
     const { category } = this.state;
     let displayedArray = this.state[category];
-    let updatedArray = displayedArray.map(item => {
-      if (item.name === favoritedCard) {
-        let favoritedItem = { ...item, favorited: !item.favorited };
-        return favoritedItem;
-      } else {
-        return item;
-      }
-    });
-
+    let updatedArray = this.mapFavorites(displayedArray, favoritedCard);
     this.setState({ [category]: updatedArray }, () => {
-      this.updateFavoritesArray();
+      this.updateFavoritesInState();
     });
   };
 
-  updateFavoritesArray = () => {
+  mapFavorites = (arrayToUpdate, itemToAdd) => {
+    return arrayToUpdate.map(item => {
+      return item.Name === itemToAdd
+        ? { ...item, favorited: !item.favorited }
+        : item;
+    });
+  };
+
+  updateFavoritesInState = () => {
     const { people, planets, vehicles } = this.state;
-    let allData = [];
-    allData = allData.concat(people, planets, vehicles);
+    let allData = people.concat(planets, vehicles);
     let favorites = allData.filter(item => item.favorited);
     this.setState({ favorites });
   };
-
-  // saveToLocalStorage = localStorageName => {
-  //   console.log(localStorageName);
-  //   localStorage.setItem(
-  //     localStorageName,
-  //     JSON.stringify(this.state[localStorageName])
-  //   );
-  //   console.log();
-  // };
 
   render() {
     const { category } = this.state;
     const { title, crawl, date } = this.props;
     return (
       <main>
-        <Nav updateCategory={this.updateCategory} />
+        <Nav
+          updateCategory={this.updateCategory}
+          favorites={this.state.favorites.length}
+        />
         {!this.state.loading && !this.state.display && (
           <Movie title={title} crawl={crawl} date={date} />
         )}
@@ -139,7 +123,7 @@ class Main extends Component {
         {this.state.display && (
           <Cards
             display={this.state[category]}
-            category = {category}
+            category={category}
             updateFavorites={this.updateFavorites}
           />
         )}

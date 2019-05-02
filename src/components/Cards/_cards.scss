@@ -1,13 +1,43 @@
 .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
-    grid-gap: 4em;
-    padding: 5em 5em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  grid-gap: 2em;
+  padding: 2em 2em;
 }
 
 main h1 {
-    margin-top: 0.5em;
-    text-align: center;
+  text-align: center;
 }
 
+.category-text {
+  color: rgb(246, 214, 50);
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
+    3px 3px 0 #000;
+  font-size: 2.5em;
+  letter-spacing: 0.15em;
+
+}
+
+h1.category-text div {
+  padding: 0.5em;
+  border-bottom: 0.05em solid black;
+  background-color: rgb(15, 15, 15);
+}
+
+@media only screen and (max-width: 1180px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 915px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

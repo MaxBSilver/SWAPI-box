@@ -8,6 +8,7 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
+  border: 0.05em black solid;
 }
 
 nav button {
@@ -15,7 +16,7 @@ nav button {
   background-color: rgb(42, 42, 42);
   border: 0.1em black solid;
   font-size: 1em;
-  width: 20em;
+  width: 25%;
   color: rgb(173, 180, 144);
   transition: background-color 0.3s, color 0.3s;
   display: flex;
@@ -26,7 +27,7 @@ nav button:focus {
   outline: none;
 }
 nav button:hover,
-nav button:focus{
+nav button:focus {
   background-color: rgb(49, 49, 49);
 }
 .nav-planets-btn:hover,
@@ -54,8 +55,7 @@ nav button:focus{
 }
 
 .nav-btn-icon {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 0.2em;
   pointer-events: none;
-
 }
