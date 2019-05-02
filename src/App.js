@@ -26,7 +26,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <h1>SWAPI-box</h1>
+          <h1><img src="https://i.imgur.com/67trXj2.png"/></h1>
         </header>
         {loading && <Loading />}
         {!loading && <Main {...this.state.randomFilm} />}

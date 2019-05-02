@@ -1,5 +1,6 @@
 import React from "react";
-
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Card(props) {
   const handleFavorite = e => {
     const { id } = e.target;
@@ -17,8 +18,16 @@ export default function Card(props) {
           )
         );
       })}
-      <button id={values[0][1]} onClick={handleFavorite}>
-        favorite
+      <button
+        className="card-favorite-button"
+        id={values[0][1]}
+        onClick={handleFavorite}
+      >
+        <FontAwesomeIcon
+          className="card-favorite-icon"
+          icon={faHeart}
+          style={{ color: props.favorited ? "#B15766" : "grey" }}
+        />
       </button>
     </article>
   );
