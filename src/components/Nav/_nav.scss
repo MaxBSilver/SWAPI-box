@@ -2,11 +2,32 @@
 nav {
     display: flex;
     align-items: center;
-    height: 4em;
+    background-color: rgb(34, 34, 34);
 }
 
 .nav-btn-container {
     width: 40%;
     display: flex;
-    justify-content: space-around;
+}
+
+nav button {
+    padding: 1.8em;
+    background-color: rgb(42, 42, 42);
+    border: 0.1em black solid;
+    font-size: 1em;
+    color : rgb(173, 180, 144);
+    transition: background-color;
+}
+nav button:focus {
+    outline: none;
+}
+nav button:hover {
+    background-color:  rgb(49, 49, 49);
+}
+.nav-planets-btn:hover {
+    color: rgb(41, 126, 41);
+}
+
+.nav-vehicles-btn:hover {
+    color: rgb(180, 117, 0)
 }
