@@ -17,7 +17,7 @@ export default function Card(props) {
           )
         );
       })}
-      <button id={values[0][1]} onClick={handleFavorite}>
+      <button id={values[0][1]} onClick={handleFavorite}  style={{ backgroundColor: props.favorited ? 'red' : 'white'}}>
         favorite
       </button>
     </article>

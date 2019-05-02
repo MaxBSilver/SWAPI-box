@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function Nav(props) {
-  const handleClickCategory = (e) => {
-   const { name } = e.target;
-   props.updateCategory(name)
+  const handleClickCategory = e => {
+    const { name } = e.target;
+    props.updateCategory(name);
   };
-  
+
   return (
     <nav>
       <div className="nav-btn-container">

@@ -15,7 +15,6 @@ import Nav from "../Nav/Nav";
 import Cards from "../Cards/Cards";
 import Movie from "../Movie/Movie";
 import Loading from "../Loading/Loading";
-import { all } from "q";
 
 class Main extends Component {
   constructor(props) {
@@ -97,24 +96,33 @@ class Main extends Component {
     let updatedArray = displayedArray.map(item => {
       if (item.name === favoritedCard) {
         let favoritedItem = { ...item, favorited: !item.favorited };
-        return favoritedItem
+        return favoritedItem;
       } else {
         return item;
       }
     });
-    
+
     this.setState({ [category]: updatedArray }, () => {
       this.updateFavoritesArray();
     });
   };
 
-  updateFavoritesArray = ()=> {
-    const { people, planets, vehicles} = this.state;
+  updateFavoritesArray = () => {
+    const { people, planets, vehicles } = this.state;
     let allData = [];
-    allData = allData.concat(people, planets, vehicles)
-    let favorites = allData.filter(item => item.favorited)
-    this.setState({ favorites })
-  }
+    allData = allData.concat(people, planets, vehicles);
+    let favorites = allData.filter(item => item.favorited);
+    this.setState({ favorites });
+  };
+
+  // saveToLocalStorage = localStorageName => {
+  //   console.log(localStorageName);
+  //   localStorage.setItem(
+  //     localStorageName,
+  //     JSON.stringify(this.state[localStorageName])
+  //   );
+  //   console.log();
+  // };
 
   render() {
     const { category } = this.state;
