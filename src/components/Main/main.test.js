@@ -1,7 +1,8 @@
 import React from "react";
 import Main from "./Main";
 import { shallow } from "enzyme";
-import { truncate } from "fs";
+import { fetchAny } from '../../utility/fetch'
+
 describe("Main", () => {
   let wrapper;
 
@@ -109,6 +110,13 @@ describe("Main", () => {
       expect(wrapper.instance().getVehicles).not.toHaveBeenCalled();
     });
   });
+//   describe("getPeople", () => {
+//     it("should set the state of loading to true", () => {
+//       wrapper.instance().getPeople();
+//       expect(wrapper.state("loading")).toEqual(true);
+//       expect(fetchAny).toHaveBeenCalled();
+//     });
+//   });
   describe("updateFavorites", () => {
     it("should set the state of loading to true", () => {
       wrapper.setState({ category: "planets", planets: mockCategoryDataArray });
