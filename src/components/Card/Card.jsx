@@ -1,6 +1,7 @@
 import React from "react";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 const Card = props => {
   const values = Object.entries(props);
   return (
@@ -10,7 +11,7 @@ const Card = props => {
         <button
           className="card-favorite-button"
           id={values[0][1]}
-          onClick={(e) => props.updateFavorites(e.target.id)}
+          onClick={e => props.updateFavorites(e.target.id)}
         >
           <FontAwesomeIcon
             className="card-favorite-icon"
@@ -30,3 +31,18 @@ const Card = props => {
   );
 };
 export default Card;
+
+Card.propTypes = {
+  Model: PropTypes.string,
+  Class: PropTypes.string,
+  Passengers: PropTypes.string,
+  Homeworld: PropTypes.string,
+  Species: PropTypes.string,
+  Climate: PropTypes.string,
+  Name: PropTypes.string,
+  Population: PropTypes.string,
+  Residents: PropTypes.string,
+  Terrain: PropTypes.string,
+  Favorited: PropTypes.bool,
+  updateFavorites: PropTypes.func
+};

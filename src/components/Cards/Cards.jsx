@@ -1,14 +1,12 @@
 import React from "react";
 import Card from "../Card/Card";
+import PropTypes from "prop-types";
 
 const Cards = props => {
-  const formatCategory = categoryString => {
-    return categoryString.toUpperCase();
-  };
   return (
     <React.Fragment>
       <h1 className="category-text">
-        <div>{formatCategory(props.category)}</div>
+        <div>{props.category.toUpperCase()}</div>
       </h1>
       <section className="cards">
         {props.display.map(item => {
@@ -26,3 +24,9 @@ const Cards = props => {
 };
 
 export default Cards;
+
+Cards.propTypes = {
+  category: PropTypes.string,
+  display: PropTypes.arrayOf(PropTypes.object),
+  updateFavorites: PropTypes.func
+};
