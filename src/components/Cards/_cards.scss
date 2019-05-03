@@ -3,26 +3,21 @@
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   grid-gap: 2em;
-  padding: 2em 2em;
+  padding: 0 2em;
 }
 
-main h1 {
-  text-align: center;
-}
 
 .category-text {
   color: rgb(246, 214, 50);
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
     3px 3px 0 #000;
-  font-size: 2.5em;
+  font-size: 2.1em;
   letter-spacing: 0.15em;
-
+  padding : 0  0.7em
 }
 
 h1.category-text div {
   padding: 0.5em;
-  border-bottom: 0.05em solid black;
-  background-color: rgb(15, 15, 15);
 }
 
 @media only screen and (max-width: 1180px) {

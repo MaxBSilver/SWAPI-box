@@ -1,7 +1,7 @@
 import React from "react";
-
- const Movie = (props) => {
-  const {title, crawl, date} = props;
+import PropTypes from "prop-types";
+const Movie = props => {
+  const { title, crawl, date } = props;
   return (
     <article className="movie">
       <h1>{title}</h1>
@@ -9,6 +9,12 @@ import React from "react";
       <span className="movie-date">{date}</span>
     </article>
   );
-}
+};
 
-export default Movie
+export default Movie;
+
+Movie.propTypes = {
+  title: PropTypes.string,
+  crawl: PropTypes.string,
+  date: PropTypes.string
+};

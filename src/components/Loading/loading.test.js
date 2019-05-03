@@ -1,12 +1,12 @@
 import React from 'react';
-import Movie from './Movie';
+import Loading from './Loading';
 import { shallow } from 'enzyme';
-describe('Movie', () => {
+describe('Loading', () => {
     let wrapper;
   
     beforeEach(() => {
       wrapper = shallow(
-        <Movie
+        <Loading
         />
       );
     });
