@@ -31,6 +31,9 @@ const cleanPlanetData = uncleanPlanetData => {
       Residents: planet.residents.map(resident => resident.name).join(", "),
       favorited: false
     };
+    if (cleanPlanet.Residents === "") {
+      cleanPlanet.Residents = "none";
+    }
     return cleanPlanet;
   });
   return cleanedPlanets;
