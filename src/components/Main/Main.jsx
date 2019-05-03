@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {
   fetchAny,
   fetchPlanetInPeople,
@@ -30,22 +31,25 @@ class Main extends Component {
       planets: [],
       favorites: []
     };
-    // save to local storage by storing an array of arrays
   }
 
   updateCategory = updatedCategory => {
-    this.setState({ category: updatedCategory.name }, () => {
+    this.setState({ category: updatedCategory }, () => {
       const { category } = this.state;
-      if (category === "people" && this.state[category].length === 0) {
-        this.getPeople();
-      }
-      if (category === "vehicles" && this.state[category].length === 0) {
-        this.getVehicles();
-      }
-      if (category === "planets" && this.state[category].length === 0) {
-        this.getPlanets();
-      }
+      this.selectCategory(category);
     });
+  };
+
+  selectCategory = category => {
+    if (category === "people" && this.state[category].length === 0) {
+      this.getPeople();
+    }
+    if (category === "vehicles" && this.state[category].length === 0) {
+      this.getVehicles();
+    }
+    if (category === "planets" && this.state[category].length === 0) {
+      this.getPlanets();
+    }
   };
 
   getPeople = () => {
@@ -133,3 +137,9 @@ class Main extends Component {
 }
 
 export default Main;
+
+Main.propTypes = {
+  crawl: PropTypes.string,
+  title: PropTypes.string,
+  date: PropTypes.string
+};

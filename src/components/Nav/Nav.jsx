@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   faSpaceShuttle,
   faUsers,
@@ -12,7 +13,7 @@ const Nav = props => {
       <div className="nav-btn-container">
         <button
           className="nav-btn nav-people-btn"
-          onClick={event => props.updateCategory(event.target)}
+          onClick={event => props.updateCategory(event.target.name)}
           name="people"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faUsers} />
@@ -20,7 +21,7 @@ const Nav = props => {
         </button>
         <button
           className="nav-btn nav-planets-btn"
-          onClick={event => props.updateCategory(event.target)}
+          onClick={event => props.updateCategory(event.target.name)}
           name="planets"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faGlobe} />
@@ -28,7 +29,7 @@ const Nav = props => {
         </button>
         <button
           className="nav-btn nav-vehicles-btn"
-          onClick={event => props.updateCategory(event.target)}
+          onClick={event => props.updateCategory(event.target.name)}
           name="vehicles"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faSpaceShuttle} />
@@ -36,7 +37,7 @@ const Nav = props => {
         </button>
         <button
           className="nav-btn nav-favorites-btn"
-          onClick={event => props.updateCategory(event.target)}
+          onClick={event => props.updateCategory(event.target.name)}
           name="favorites"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faHeart} />
@@ -47,3 +48,8 @@ const Nav = props => {
   );
 };
 export default Nav;
+
+Nav.propTypes = {
+  favorites: PropTypes.number,
+  updateCategory: PropTypes.func.isRequired
+};

@@ -10,6 +10,10 @@ describe("App", () => {
   it("should match the snapshot with all data passed in", () => {
     expect(wrapper).toMatchSnapshot();
   });
+  it("should have a default state", () => {
+    expect(wrapper.state("randomFilm")).toEqual('');
+    expect(wrapper.state("loading")).toEqual(true);
+  });
 
   it("renders without crashing", () => {
     const div = document.createElement("div");
