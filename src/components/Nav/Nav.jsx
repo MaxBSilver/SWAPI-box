@@ -6,18 +6,13 @@ import {
   faGlobe
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default function Nav(props) {
-  const handleClickCategory = e => {
-    const { name } = e.target;
-    props.updateCategory(name);
-  };
-
+const Nav = props => {
   return (
     <nav>
       <div className="nav-btn-container">
         <button
           className="nav-btn nav-people-btn"
-          onClick={handleClickCategory}
+          onClick={event => props.updateCategory(event.target)}
           name="people"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faUsers} />
@@ -25,7 +20,7 @@ export default function Nav(props) {
         </button>
         <button
           className="nav-btn nav-planets-btn"
-          onClick={handleClickCategory}
+          onClick={event => props.updateCategory(event.target)}
           name="planets"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faGlobe} />
@@ -33,7 +28,7 @@ export default function Nav(props) {
         </button>
         <button
           className="nav-btn nav-vehicles-btn"
-          onClick={handleClickCategory}
+          onClick={event => props.updateCategory(event.target)}
           name="vehicles"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faSpaceShuttle} />
@@ -41,7 +36,7 @@ export default function Nav(props) {
         </button>
         <button
           className="nav-btn nav-favorites-btn"
-          onClick={handleClickCategory}
+          onClick={event => props.updateCategory(event.target)}
           name="favorites"
         >
           <FontAwesomeIcon className="nav-btn-icon" icon={faHeart} />
@@ -50,4 +45,5 @@ export default function Nav(props) {
       </div>
     </nav>
   );
-}
+};
+export default Nav;

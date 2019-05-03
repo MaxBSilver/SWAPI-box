@@ -1,48 +1,49 @@
 .card {
-    display:flex;
-    flex-direction: column;
-    border: black solid 0.1em;
-    align-content: center;
-    grid-auto-columns: 1fr;
-    height: 14em;
-    width: 12em;
-    background-color: rgb(42, 42, 44);
-    border-radius: 0.4em;
-    justify-content: space-between;
-    padding: 2em;
-    color: grey;
-    overflow: scroll;
-  animation: fade-in linear 0.3s
-
+  display: flex;
+  flex-direction: column;
+  border: black solid 0.1em;
+  align-content: center;
+  grid-auto-columns: 1fr;
+  height: 14em;
+  width: 12em;
+  background-color: rgb(42, 42, 44);
+  border-radius: 0.4em;
+  justify-content: space-between;
+  padding: 2em;
+  color: grey;
+  overflow: scroll;
+  animation: fade-in linear 0.3s;
 }
 
 @keyframes fade-in {
-    from {opacity: 0}
-    to {opacity: 1}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .card-favorite-icon {
-    color: #B15766;
-    font-size: 3em;
-    pointer-events: none;
- 
-    
+  color: #b15766;
+  font-size: 3em;
+  pointer-events: none;
 }
 
 .card h1 {
-    background-color: rgb(66, 66, 68);
-    padding: 0.3em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: rgb(66, 66, 68);
+  padding: 0.3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card button {
-    border: none;
-    outline: none;
-    position: relative;
-    z-index: 3;
-    width: 3em;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 3;
+  width: 3em;
 }
 .card-favorite-button {
-    background-color: transparent;
+  background-color: transparent;
 }

@@ -34,7 +34,7 @@ class Main extends Component {
   }
 
   updateCategory = updatedCategory => {
-    this.setState({ category: updatedCategory }, () => {
+    this.setState({ category: updatedCategory.name }, () => {
       const { category } = this.state;
       if (category === "people" && this.state[category].length === 0) {
         this.getPeople();
